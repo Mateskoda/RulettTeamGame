@@ -1,0 +1,18 @@
+1*Könyvtár
+11*Felhasználók
+111*Regisztráció
+112*Keresés adott felhasználóra (Kölcsönzött könyveinek listája)
+12*Könyvek
+121*Új könyv nyílvántartásba vétele
+122*Keresés
+123*Selejtezés
+13* Kölcsönzés
+131*Kikölcsönzés
+132*Visszavétel
+133*Könyv kölcsönzési története
+134*Adott nap kölcsönzési története
+14*Lekérdezések
+141*Legnépszerűbb könyvek
+142*Adott könyv átlagos kintléte
+143*Felhasználók összes eddigi kölcsönzése
+*
