@@ -76,14 +76,14 @@ public interface GameEngine
     *       for the console (assignment 1) and GUI (assignment 2) versions</pre>
     * @see view.interfaces.GameEngineCallback
     */
-   public abstract void addGameEngineCallback(GameEngineCallback gameEngineCallback);
+//   public abstract void addGameEngineCallback(GameEngineCallback gameEngineCallback);
 
    /**
     * @param gameEngineCallback - instance to be removed if no longer needed
     * @return true - if the gameEngineCallback existed
     * @see view.interfaces.GameEngineCallback
     */
-   public abstract boolean removeGameEngineCallback(GameEngineCallback gameEngineCallback);
+//   public abstract boolean removeGameEngineCallback(GameEngineCallback gameEngineCallback);
 
    /**
     * @return - an unmodifiable collection (or a shallow copy) of all Players

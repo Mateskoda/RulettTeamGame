@@ -1,4 +1,9 @@
 
+import guiView.WheelGameJFrame;
+import model.GameEngineImpl;
+import model.interfaces.GameEngine;
+import viewmodel.Viewmodel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,6 +14,7 @@ import java.awt.event.KeyListener;
 
 public class JframeWindows extends JFrame implements ActionListener {
     JRadioButton r1;
+    JRadioButton r2;
     JFrame f = new JFrame();
     JPanel radioButtons;
     JPanel myGamePanel1;
@@ -45,20 +51,26 @@ public class JframeWindows extends JFrame implements ActionListener {
                 "\n ");
         udv2.setFont(new Font("", Font.PLAIN, 30));
 
-        r1 = new JRadioButton("Játszani szeretnék egyet!");
+        r1 = new JRadioButton("Egyéni Rulett!");
         r1.setFont(new Font("", Font.PLAIN, 20));
 
         radioButtons.add(r1);
+        r2 = new JRadioButton("Csoport Rulett!");
+        r2.setFont(new Font("", Font.PLAIN, 20));
+
+        radioButtons.add(r2);
         myGamePanel1 = myGame1();
         myGamePanel2 = myGame2();
 //        myGamePanel3 = myGame3();
 
         radioButtons = new JPanel();
         radioButtons.add(r1);
+        radioButtons.add(r2);
         ButtonGroup bg = new ButtonGroup();     //azert kell gropba tenni,hogy csak egy legyen kivalaszthato egyszerre
         bg.add(r1);
         r1.addActionListener(this);
-
+        bg.add(r2);
+        r2.addActionListener(this);
         panel = new JPanel();
         panel.add(udv);
         panel.add(udv2);
@@ -67,7 +79,7 @@ public class JframeWindows extends JFrame implements ActionListener {
         panel.add(new JLabel(new ImageIcon("Rulett/src/WorkingArea/rul.png")));
         f.setSize(800, 600);
         f.setResizable(false);
-        f.setTitle("Roulete game by MATE & GABOR");
+        f.setTitle("Roulete game ");
         f.setLocationRelativeTo(null);  //kepernyo kozepere teszi az ablakot
         f.setVisible(true);
         f.validate();           //enelkul neha visszajottek az elozo komponensek
@@ -79,6 +91,25 @@ public class JframeWindows extends JFrame implements ActionListener {
             f.add(myGamePanel1);
             f.setVisible(true);
             f.validate();
+        }
+        if (r2.isSelected()) {
+            f.remove(panel);
+            f.dispose();
+            final GameEngine gameEngine = new GameEngineImpl();
+            SwingUtilities.invokeLater(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    final Viewmodel viewmodel = new Viewmodel();
+//                    gameEngineCallbackGUI.addPropertyChangeListener(viewmodel);
+                    new WheelGameJFrame(gameEngine, viewmodel);
+                }
+            });
+
+//            f.add(myGamePanel1);
+//            f.setVisible(true);
+//            f.validate();
         }
 
         if (e.getSource() == submit1) {                 //ha az esemeny forrasa a submit1 nevu gomb

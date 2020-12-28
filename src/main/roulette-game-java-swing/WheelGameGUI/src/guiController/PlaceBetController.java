@@ -73,19 +73,19 @@ public class PlaceBetController implements ActionListener{
 				isAllBetPlaced = false;
 		}
 		
-		if(isAllBetPlaced) {
-
-			new Thread()
-			{
-				@Override
-				public void run()
-				{
-					pcs.firePropertyChange("wheelIsSpinning", null, null);
-					gameEngine.spin(1, 200, 4);
-				}
-			}.start();
-		
-		}
+//		if(isAllBetPlaced) {
+//
+//			new Thread()
+//			{
+//				@Override
+//				public void run()
+//				{
+//					pcs.firePropertyChange("wheelIsSpinning", null, null);
+//					gameEngine.spin(1, 200, 4);
+//				}
+//			}.start();
+//
+//		}
 	
 	}
 	

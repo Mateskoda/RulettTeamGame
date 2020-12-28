@@ -21,23 +21,23 @@ public class GameEngineImpl implements GameEngine {
 	private Random random;
 	private int currentSlot;
 
-	public GameEngineImpl() {
-		this.createWheel();
-	}
+//	public GameEngineImpl() {
+//		this.createWheel();
+//	}
 
 	@Override
 	public void spin(int initialDelay, int finalDelay, int delayIncrement) {
-		// TODO Auto-generated method stub
+//		 TODO Auto-generated method stub
 		random = new Random();
 		currentSlot = random.nextInt(Slot.WHEEL_SIZE);
-
+//
 		while (!(initialDelay >= finalDelay)) {
 			currentSlot += 1;
 			for (GameEngineCallback gameEngineCallback : gameEngineCallbacks) {
 				try {
 					Thread.sleep(initialDelay);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
+//					 TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				gameEngineCallback.nextSlot(slots.get(currentSlot % Slot.WHEEL_SIZE), this);
@@ -53,18 +53,18 @@ public class GameEngineImpl implements GameEngine {
 
 	@Override
 	public void calculateResult(Slot winningSlot) {
-		Iterator<Player> iterator = players.iterator();
-
-	    while (iterator.hasNext())
-	    {
-	    	Player player = iterator.next();
-	    	
-	    	if(player.getBetType() != null) 
-	    		player.getBetType().applyWinLoss(player, winningSlot);
-	    	else
-	    		System.out.println("bet type not available");
-	    	
-	    }
+//		Iterator<Player> iterator = players.iterator();
+//
+//	    while (iterator.hasNext())
+//	    {
+//	    	Player player = iterator.next();
+//
+//	    	if(player.getBetType() != null)
+//	    		player.getBetType().applyWinLoss(player, winningSlot);
+//	    	else
+//	    		System.out.println("bet type not available");
+//
+//	    }
 	}
 
 	@Override
@@ -117,15 +117,15 @@ public class GameEngineImpl implements GameEngine {
 			return false;
 	}
 
-	@Override
-	public void addGameEngineCallback(GameEngineCallback gameEngineCallback) {
-		this.gameEngineCallbacks.add(gameEngineCallback);
-	}
-
-	@Override
-	public boolean removeGameEngineCallback(GameEngineCallback gameEngineCallback) {
-		return this.gameEngineCallbacks.remove(gameEngineCallback);
-	}
+//	@Override
+//	public void addGameEngineCallback(GameEngineCallback gameEngineCallback) {
+//		this.gameEngineCallbacks.add(gameEngineCallback);
+//	}
+//
+//	@Override
+//	public boolean removeGameEngineCallback(GameEngineCallback gameEngineCallback) {
+//		return this.gameEngineCallbacks.remove(gameEngineCallback);
+//	}
 
 	@Override
 	public Collection<Player> getAllPlayers() {
@@ -147,21 +147,21 @@ public class GameEngineImpl implements GameEngine {
 		return Collections.unmodifiableCollection(this.slots);
 	}
 
-	private void createWheel() {
+//	private void createWheel() {
 		// creating a collection of slot in accordance to the given image from img
 		// folder
-		slots = new ArrayList<Slot>(Arrays.asList(new SlotImpl(0, Color.GREEN00, 00), new SlotImpl(1, Color.RED, 27),
-				new SlotImpl(2, Color.BLACK, 10), new SlotImpl(3, Color.RED, 25), new SlotImpl(4, Color.BLACK, 29),
-				new SlotImpl(5, Color.RED, 12), new SlotImpl(6, Color.BLACK, 8), new SlotImpl(7, Color.RED, 19),
-				new SlotImpl(8, Color.BLACK, 31), new SlotImpl(9, Color.RED, 18), new SlotImpl(10, Color.BLACK, 6),
-				new SlotImpl(11, Color.RED, 21), new SlotImpl(12, Color.BLACK, 33), new SlotImpl(13, Color.RED, 16),
-				new SlotImpl(14, Color.BLACK, 4), new SlotImpl(15, Color.RED, 23), new SlotImpl(16, Color.BLACK, 35),
-				new SlotImpl(17, Color.RED, 14), new SlotImpl(18, Color.BLACK, 2), new SlotImpl(19, Color.GREEN0, 0),
-				new SlotImpl(20, Color.BLACK, 28), new SlotImpl(21, Color.RED, 9), new SlotImpl(22, Color.BLACK, 26),
-				new SlotImpl(23, Color.RED, 30), new SlotImpl(24, Color.BLACK, 11), new SlotImpl(25, Color.RED, 7),
-				new SlotImpl(26, Color.BLACK, 20), new SlotImpl(27, Color.RED, 32), new SlotImpl(28, Color.BLACK, 17),
-				new SlotImpl(29, Color.RED, 5), new SlotImpl(30, Color.BLACK, 22), new SlotImpl(31, Color.RED, 34),
-				new SlotImpl(32, Color.BLACK, 15), new SlotImpl(33, Color.RED, 3), new SlotImpl(34, Color.BLACK, 24),
-				new SlotImpl(35, Color.RED, 36), new SlotImpl(36, Color.BLACK, 13), new SlotImpl(37, Color.RED, 1)));
-	}
+//		slots = new ArrayList<Slot>(Arrays.asList(new SlotImpl(0, Color.GREEN00, 00), new SlotImpl(1, Color.RED, 27),
+//				new SlotImpl(2, Color.BLACK, 10), new SlotImpl(3, Color.RED, 25), new SlotImpl(4, Color.BLACK, 29),
+//				new SlotImpl(5, Color.RED, 12), new SlotImpl(6, Color.BLACK, 8), new SlotImpl(7, Color.RED, 19),
+//				new SlotImpl(8, Color.BLACK, 31), new SlotImpl(9, Color.RED, 18), new SlotImpl(10, Color.BLACK, 6),
+//				new SlotImpl(11, Color.RED, 21), new SlotImpl(12, Color.BLACK, 33), new SlotImpl(13, Color.RED, 16),
+//				new SlotImpl(14, Color.BLACK, 4), new SlotImpl(15, Color.RED, 23), new SlotImpl(16, Color.BLACK, 35),
+//				new SlotImpl(17, Color.RED, 14), new SlotImpl(18, Color.BLACK, 2), new SlotImpl(19, Color.GREEN0, 0),
+//				new SlotImpl(20, Color.BLACK, 28), new SlotImpl(21, Color.RED, 9), new SlotImpl(22, Color.BLACK, 26),
+//				new SlotImpl(23, Color.RED, 30), new SlotImpl(24, Color.BLACK, 11), new SlotImpl(25, Color.RED, 7),
+//				new SlotImpl(26, Color.BLACK, 20), new SlotImpl(27, Color.RED, 32), new SlotImpl(28, Color.BLACK, 17),
+//				new SlotImpl(29, Color.RED, 5), new SlotImpl(30, Color.BLACK, 22), new SlotImpl(31, Color.RED, 34),
+//				new SlotImpl(32, Color.BLACK, 15), new SlotImpl(33, Color.RED, 3), new SlotImpl(34, Color.BLACK, 24),
+//				new SlotImpl(35, Color.RED, 36), new SlotImpl(36, Color.BLACK, 13), new SlotImpl(37, Color.RED, 1)));
+//	}
 }

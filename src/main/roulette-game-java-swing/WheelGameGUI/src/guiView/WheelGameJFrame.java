@@ -12,15 +12,15 @@ import viewmodel.Viewmodel;
 @SuppressWarnings("serial")
 public class WheelGameJFrame extends JFrame {
 	
-	ComponentListener listener;
+//	ComponentListener listener;
 	SummaryPanel summaryPanel;
 	StatusBar statusBar;
 	ToolBarMenu toolBarMenu;
-	WheelPanel wheelPanel;
+//	WheelPanel wheelPanel;
 	GameEngine gameEngine;
 	Viewmodel viewmodel;
-	int width;
-int height;
+//	int width;
+//int height;
 	
 	public WheelGameJFrame(GameEngine gameEngine, Viewmodel viewmodel)  {
 		
@@ -32,30 +32,31 @@ int height;
 		
 		setSize(900,600);
 		
-		setLayout(new BorderLayout());
+//		setLayout(new BorderLayout());
 		
 		this.viewmodel = viewmodel;
 		this.gameEngine = gameEngine;
 		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-			
-		setMinimumSize(new Dimension(screenSize.width/2, screenSize.height/2));
+
+
+//		setMinimumSize(new Dimension(screenSize.width/2, screenSize.height/2));
 		
 		summaryPanel = new SummaryPanel(gameEngine, viewmodel, screenSize.width/2, screenSize.height/2);
 		statusBar = new StatusBar(gameEngine,viewmodel);
 		toolBarMenu = new ToolBarMenu(gameEngine, viewmodel);
-		wheelPanel = new WheelPanel(gameEngine, viewmodel);
+//		wheelPanel = new WheelPanel(gameEngine, viewmodel);
 
 		viewmodel.addPropertyChangeListener(summaryPanel);
 		viewmodel.addPropertyChangeListener(statusBar);
 		viewmodel.addPropertyChangeListener(toolBarMenu);
-		viewmodel.addPropertyChangeListener(wheelPanel);
+//		viewmodel.addPropertyChangeListener(wheelPanel);
 
 		add(toolBarMenu, BorderLayout.NORTH);
 		add(summaryPanel, BorderLayout.WEST);
-		add(wheelPanel, BorderLayout.CENTER);
+//		add(wheelPanel, BorderLayout.CENTER);
 		add(statusBar, BorderLayout.SOUTH);
-		pack();
+//		pack();
 		
 	}
 	

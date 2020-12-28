@@ -18,11 +18,11 @@ public class Main {
 		
 		final GameEngine gameEngine = new GameEngineImpl();
 		
-		GameEngineCallbackGUI gameEngineCallbackGUI  = new GameEngineCallbackGUI(gameEngine);
-		gameEngine.addGameEngineCallback(gameEngineCallbackGUI );
-		
-		GameEngineCallback gameEngineCallback = new GameEngineCallbackImpl();
-		gameEngine.addGameEngineCallback(gameEngineCallback);
+//		GameEngineCallbackGUI gameEngineCallbackGUI  = new GameEngineCallbackGUI(gameEngine);
+//		gameEngine.addGameEngineCallback(gameEngineCallbackGUI );
+//
+//		GameEngineCallback gameEngineCallback = new GameEngineCallbackImpl();
+//		gameEngine.addGameEngineCallback(gameEngineCallback);
 		
 		SwingUtilities.invokeLater(new Runnable()
 		{
@@ -30,13 +30,13 @@ public class Main {
 			public void run()
 			{
 				final Viewmodel viewmodel = new Viewmodel();
-				gameEngineCallbackGUI.addPropertyChangeListener(viewmodel);
+//				gameEngineCallbackGUI.addPropertyChangeListener(viewmodel);
 				new WheelGameJFrame(gameEngine, viewmodel);
-			
+
 			}
 		});
 
-		
+
 
 	}
 
