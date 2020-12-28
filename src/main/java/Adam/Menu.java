@@ -91,7 +91,7 @@ public class Menu {
     public void navigateMenu() {
 
         if (this.isItLast && !this.getRunningCode().contains("0")) {
-            Main.runMenu(this.getRunningCode());
+            menuMain.runMenu(this.getRunningCode());
         } else {
             System.out.println(this.getTitle());
             boolean goon = true;

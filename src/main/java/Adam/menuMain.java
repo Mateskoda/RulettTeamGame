@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Main {
+public class menuMain {
 
     public static Menu mainMenu = new Menu();
     static GraphicsConfiguration gc;
